@@ -31,4 +31,8 @@ public class Entity : MonoBehaviour
         entity_health_text = transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
         entity_health_text.text = entity_health.ToString() + "/" + entity_max_health.ToString();
     }
+    public void GetDamage(int amount)
+    {
+        entity_health -= Mathf.RoundToInt((entity_weak >= 1) ? 1.5f * amount : amount);
+    }
 }
