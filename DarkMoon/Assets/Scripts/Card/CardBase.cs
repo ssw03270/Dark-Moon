@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CardBase : MonoBehaviour
 {
@@ -11,9 +12,24 @@ public class CardBase : MonoBehaviour
     public List<SimpleTask> card_task = new List<SimpleTask>();
 
     FieldManager current_field;
+
+    TextMeshPro card_cost_text;
+    TextMeshPro card_name_text;
+    TextMeshPro card_content_text;
+
     private void Awake()
     {
         current_field = GameObject.Find("FieldManager").GetComponent<FieldManager>();
+    }
+    protected void SetCardText()
+    {
+        if (transform.childCount <= 0)
+        {
+            Debug.Assert(transform.childCount < 0, "Can't Find Card Text");
+            return;
+        }
+        card_cost_text = transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
+        card_cost_text.text = card_cost.ToString();
     }
     public virtual void UseCard()
     {

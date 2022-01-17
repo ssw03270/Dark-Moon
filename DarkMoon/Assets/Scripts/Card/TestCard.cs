@@ -11,6 +11,8 @@ public class TestCard : CardBase
         this.card_cost = 1;
         this.card_content = "this card is for testing";
 
+        base.SetCardText();
+
         this.card_task.Add(new SimplePoison());
     }
 
