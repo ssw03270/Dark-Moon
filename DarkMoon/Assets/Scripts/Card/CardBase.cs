@@ -5,9 +5,18 @@ using TMPro;
 
 public class CardBase : MonoBehaviour
 {
+    public enum ClassType
+    {
+        Mage,
+        Priest,
+        Rogue,
+        Warrior
+    }
+
     public string card_name;
     public int card_cost;
     public string card_content;
+    public ClassType class_type;
 
     public List<SimpleTask> card_task = new List<SimpleTask>();
 

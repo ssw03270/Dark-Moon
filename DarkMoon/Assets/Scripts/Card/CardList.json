@@ -1,0 +1,18 @@
+[
+    {
+        "card_name": "TestCard01",
+        "class_type": "Warrior"
+    },
+    {
+        "card_name": "TestCard02",
+        "class_type": "Mage"
+    },
+    {
+        "card_name": "TestCard03",
+        "class_type": "Priest"
+    },
+    {
+        "card_name": "TestCard04",
+        "class_type": "Rogue"
+    }
+]

@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 
 public class EntityBase : MonoBehaviour
-
 {
     public enum EntityType
     {
