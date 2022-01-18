@@ -30,6 +30,12 @@ public class CardBase : MonoBehaviour
         }
         card_cost_text = transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
         card_cost_text.text = card_cost.ToString();
+
+        card_name_text = transform.GetChild(1).gameObject.GetComponent<TextMeshPro>();
+        card_name_text.text = card_name;
+
+        card_content_text = transform.GetChild(2).gameObject.GetComponent<TextMeshPro>();
+        card_content_text.text = card_content;
     }
     public virtual void UseCard()
     {

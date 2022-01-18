@@ -4,24 +4,41 @@ using UnityEngine;
 
 public class FieldManager : MonoBehaviour
 {
-    public EntityBase[] our_entity = new EntityBase[3];
+    public PlayerEntity[] player_entity = new PlayerEntity[3];
     public EntityBase[] enemy_entity = new EntityBase[4];
+
+    public int current_player_number = 0;
+
+    public int hand_max_count = 5;
 
     public int max_energy = 3;
     public int current_energy = 3;
 
-    public bool is_our_turn = true;
-
+    public bool is_player_turn = false;
+    private void Start()
+    {
+        NextTurn();
+    }
     public void NextTurn()
     {
-        if (is_our_turn)
+        if (is_player_turn)
         {
-            is_our_turn = false;
+            is_player_turn = false;
+
+            for(int i = 0; i < 3; i++)
+            {
+                player_entity[i].HandToDiscardPile(player_entity[i].hand.Count);
+            }
         }
         else
         {
-            is_our_turn = true;
+            is_player_turn = true;
             current_energy = max_energy;
+
+            for(int i = 0; i < 3; i++)
+            {
+                player_entity[i].DeckToHand(hand_max_count);
+            }
         }
     }
 }
