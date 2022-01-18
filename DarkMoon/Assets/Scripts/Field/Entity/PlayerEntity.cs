@@ -10,6 +10,8 @@ public class PlayerEntity : EntityBase
 
     public int deck_count;
 
+    public int gold;
+
     // Start is called before the first frame update
     void Start()
     {
