@@ -16,6 +16,8 @@ public class PlayerEntity : EntityBase
     public List<CardBase> hand = new List<CardBase>();
     public List<CardBase> discard_pile = new List<CardBase>();
 
+    public List<GameObject> hand_gameobject = new List<GameObject>();
+
     public ClassType class_type;
 
     public int gold;
@@ -47,9 +49,11 @@ public class PlayerEntity : EntityBase
             if(deck.Count > 0)
             {
                 hand.Add(deck[0]);
+                hand_gameobject.Add(Instantiate(deck[0]).transform.gameObject);
                 deck.RemoveAt(0);
             }
         }
+        SortingCardInHand();
     }
     public void HandToDiscardPile(int count)
     {
@@ -75,6 +79,27 @@ public class PlayerEntity : EntityBase
                 deck.Add(discard_pile[0]);
                 discard_pile.RemoveAt(0);
             }
+        }
+    }
+    public void SortingCardInHand()
+    {
+        int card_count_in_hand = hand.Count;
+        List<float> card_angle_in_hand = new List<float>();
+
+        for(int i = 0; i < card_count_in_hand; i++)
+        {
+            card_angle_in_hand.Add(120.0f / card_count_in_hand * i);
+        }
+
+        for(int i = 0; i < card_count_in_hand; i++)
+        {
+            float extra_card_angle = 60.0f / card_count_in_hand;
+            
+            card_angle_in_hand[i] += extra_card_angle;
+            card_angle_in_hand[i] -= 60;
+            hand_gameobject[i].transform.localEulerAngles = new Vector3(0, 0, card_angle_in_hand[i]);
+            hand_gameobject[i].transform.position = new Vector3(0, -6, 0);
+            hand_gameobject[i].transform.position += hand_gameobject[i].transform.up * 5;
         }
     }
 }

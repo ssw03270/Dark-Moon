@@ -7,7 +7,7 @@ public class Mage : PlayerEntity
     // Start is called before the first frame update
     void Start()
     {
-        class_type = ClassType.Mage;
+        class_type = ClassType.Mage;    // 직업: 마법사
     }
 
     // Update is called once per frame

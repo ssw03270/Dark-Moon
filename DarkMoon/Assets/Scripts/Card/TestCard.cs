@@ -5,15 +5,16 @@ using UnityEngine;
 public class TestCard : CardBase
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        this.card_name = "Test Card";
-        this.card_cost = 1;
-        this.card_content = "this card is for testing";
+        card_name = "Test Card";
+        card_cost = 1;
+        card_content = "this card is for testing";
 
         base.SetCardText();
 
-        this.card_task.Add(new SimplePoison());
+        SimplePoison simple_poison = new SimplePoison();
+        card_task.Add(simple_poison);
     }
 
     public override void UseCard()
