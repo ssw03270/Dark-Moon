@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     public RectTransform shop_ui;
+    public TempManager temp_manager;
 
     public void ShopEnterButton()
     {
@@ -13,6 +14,15 @@ public class Shop : MonoBehaviour
 
     public void ShopExitButton()
     {
-        shop_ui.anchoredPosition = Vector3.up * 500;
+        shop_ui.anchoredPosition = Vector3.up * 1000;
+    }
+
+    public void Buy(int price)
+    {
+        if (temp_manager.gold_amount >= price)
+        {
+            
+        }
+        
     }
 }
