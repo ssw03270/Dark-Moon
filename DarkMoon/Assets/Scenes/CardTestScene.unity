@@ -784,6 +784,7 @@ MonoBehaviour:
   entity_death: 0
   entity_guard: 0
   entity_revival: 0
+  entity_health_text: {fileID: 0}
   deck: []
   hand: []
   discard_pile: []
@@ -851,7 +852,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464480906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0090001, y: -2.8719997, z: 0}
+  m_LocalPosition: {x: -1.3720002, y: 2.473, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1809929258}
@@ -935,6 +936,7 @@ GameObject:
   - component: {fileID: 607681108}
   - component: {fileID: 607681107}
   - component: {fileID: 607681106}
+  - component: {fileID: 607681109}
   m_Layer: 0
   m_Name: EnemyEntity (5)
   m_TagString: Untagged
@@ -951,7 +953,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 607681105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aed39e814ac69441952be38fd6df9d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d4ff03b98e98ad4caf03b28a544c1c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   entity_name: Skeleton
@@ -968,6 +970,8 @@ MonoBehaviour:
   entity_death: 0
   entity_guard: 0
   entity_revival: 0
+  entity_health_text: {fileID: 0}
+  enemy_damage: 0
 --- !u!212 &607681107
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1027,13 +1031,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607681105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.431, y: -2.8349998, z: 0}
+  m_LocalPosition: {x: 3.05, y: 2.51, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1517205627}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &607681109
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607681105}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.54, y: 0.58}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.58}
+  m_EdgeRadius: 0
 --- !u!1 &666790999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1242,7 @@ MonoBehaviour:
   entity_death: 0
   entity_guard: 0
   entity_revival: 0
+  entity_health_text: {fileID: 0}
   deck: []
   hand: []
   discard_pile: []
@@ -1279,7 +1310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731585905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1489997, y: -2.8649998, z: 0}
+  m_LocalPosition: {x: -4.5299997, y: 2.48, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1078254572}
@@ -1734,6 +1765,7 @@ GameObject:
   - component: {fileID: 1359098004}
   - component: {fileID: 1359098003}
   - component: {fileID: 1359098002}
+  - component: {fileID: 1359098005}
   m_Layer: 0
   m_Name: EnemyEntity (4)
   m_TagString: Untagged
@@ -1750,7 +1782,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1359098001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aed39e814ac69441952be38fd6df9d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d4ff03b98e98ad4caf03b28a544c1c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   entity_name: Skeleton
@@ -1767,6 +1799,8 @@ MonoBehaviour:
   entity_death: 0
   entity_guard: 0
   entity_revival: 0
+  entity_health_text: {fileID: 0}
+  enemy_damage: 0
 --- !u!212 &1359098003
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1826,13 +1860,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359098001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8020005, y: -2.85, z: 0}
+  m_LocalPosition: {x: 1.4210002, y: 2.495, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 2143134170}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1359098005
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359098001}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.54, y: 0.58}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.58}
+  m_EdgeRadius: 0
 --- !u!1 &1362221486
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,6 +2387,7 @@ MonoBehaviour:
   entity_death: 0
   entity_guard: 0
   entity_revival: 0
+  entity_health_text: {fileID: 0}
   deck: []
   hand: []
   discard_pile: []
@@ -2394,7 +2455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683669701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.52, y: -2.85, z: 0}
+  m_LocalPosition: {x: -2.9010003, y: 2.495, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 364318659}
@@ -2982,6 +3043,7 @@ GameObject:
   - component: {fileID: 2010865597}
   - component: {fileID: 2010865596}
   - component: {fileID: 2010865595}
+  - component: {fileID: 2010865598}
   m_Layer: 0
   m_Name: EnemyEntity (6)
   m_TagString: Untagged
@@ -2998,7 +3060,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2010865594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aed39e814ac69441952be38fd6df9d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d4ff03b98e98ad4caf03b28a544c1c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   entity_name: Skeleton
@@ -3015,6 +3077,8 @@ MonoBehaviour:
   entity_death: 0
   entity_guard: 0
   entity_revival: 0
+  entity_health_text: {fileID: 0}
+  enemy_damage: 0
 --- !u!212 &2010865596
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3074,13 +3138,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010865594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.96, y: -2.8569999, z: 0}
+  m_LocalPosition: {x: 4.5789995, y: 2.488, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 399320582}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2010865598
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010865594}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.54, y: 0.58}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.58}
+  m_EdgeRadius: 0
 --- !u!1 &2143134169
 GameObject:
   m_ObjectHideFlags: 0

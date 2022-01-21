@@ -19,6 +19,7 @@ public class CardBase : MonoBehaviour
     public int card_cost;           // 카드 비용
     public string card_content;     // 카드 내용
     public ClassType class_type;    // 직업 카드 정보
+    private int target_entitiy_position;
     
     public List<Tuple<SimpleTask, int>> card_task = new List<Tuple<SimpleTask, int>>();     // simple task가 저장 될 list
 
@@ -28,6 +29,7 @@ public class CardBase : MonoBehaviour
     TextMeshPro card_name_text;     // 카드 이름을 display 할 tmpro
     TextMeshPro card_content_text;  // 카드 내용을 display 할 tmpro
 
+    public bool is_active_card;
     public Vector2 target_position;
     float draw_speed = 10f;
 
@@ -66,22 +68,77 @@ public class CardBase : MonoBehaviour
         {
             current_field.current_energy -= card_cost;  // 비용만큼 에너지 소비
 
-            int target_position = SelectTarget();       // 타겟 설정
             foreach (Tuple<SimpleTask, int> task in card_task) // task가 들어있는 list에서 각 task 꺼냄
             {
-                task.Item1.Task(target_position, task.Item2);          // 타겟 위치에 task 실행
+                task.Item1.Task(target_entitiy_position, task.Item2);          // 타겟 위치에 task 실행
             }
+            current_field.player_entity[current_field.current_player_number].HandToDiscardPile(this.gameObject);
+
         }
     }
-    public virtual int SelectTarget()       // 타겟 선택하는 함수
-    {
-        int target_position = 0;            
 
-        return target_position;
+    protected void Active()
+    {
+        if (is_active_card)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 mouse_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mouse_position_2d = new Vector2(mouse_position.x, mouse_position.y);
+
+                RaycastHit2D hit = Physics2D.Raycast(mouse_position_2d, Vector2.zero);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.gameObject == current_field.enemy_entity[0].gameObject)
+                    {
+                        target_entitiy_position = 0;
+                        UseCard();
+                    }
+                    else if (hit.collider.gameObject == current_field.enemy_entity[1].gameObject)
+                    {
+                        target_entitiy_position = 1;
+                        UseCard();
+                    }
+                    else if (hit.collider.gameObject == current_field.enemy_entity[2].gameObject)
+                    {
+                        target_entitiy_position = 2;
+                        UseCard();
+                    }
+                }
+            }
+        }
     }
 
     protected virtual void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target_position, Time.deltaTime * draw_speed);
+        transform.position = Vector2.MoveTowards(transform.position, target_position + (is_active_card ? new Vector2(this.transform.up.x, this.transform.up.y) : new Vector2(0, 0)), Time.deltaTime * draw_speed);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mouse_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mouse_position_2d = new Vector2(mouse_position.x, mouse_position.y);
+
+            RaycastHit2D hit = Physics2D.Raycast(mouse_position_2d, Vector2.zero);
+            if(hit.collider != null)
+            {
+                if (hit.collider.gameObject == this.gameObject)
+                {
+                    is_active_card = !is_active_card;
+                    if (is_active_card)
+                    {
+                        foreach(GameObject card in current_field.player_entity[current_field.current_player_number].hand_gameobject)
+                        {
+                            if(card != this.gameObject)
+                            {
+                                card.GetComponent<CardBase>().is_active_card = false;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+        Active();
     }
 }

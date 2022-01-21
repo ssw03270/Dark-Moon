@@ -13,6 +13,6 @@ public class Mage : PlayerEntity
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

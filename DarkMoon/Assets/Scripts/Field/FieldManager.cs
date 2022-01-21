@@ -72,6 +72,6 @@ public class FieldManager : MonoBehaviour
     }
     public void GetRandomEXP()        // 전투 끝, 경험치 보상 획득 함수
     {
-
+        
     }
 }

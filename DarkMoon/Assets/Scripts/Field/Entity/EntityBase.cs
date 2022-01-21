@@ -27,20 +27,21 @@ public class EntityBase : MonoBehaviour
     public int entity_revival;
 
 
-    TextMeshPro entity_health_text;
+    public TextMeshPro entity_health_text;
 
     private void Awake()
     {
-        if (transform.childCount <= 0)
-        {
-            Debug.Assert(transform.childCount < 0, "Can't Find Entity Health Text");
-            return;
-        }
         entity_health_text = transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
         entity_health_text.text = entity_health.ToString() + "/" + entity_max_health.ToString();
     }
     public void GetDamage(int amount)
     {
         entity_health -= Mathf.RoundToInt((entity_weak >= 1) ? 1.5f * amount : amount);
+    }
+
+    protected virtual void Update()
+    {
+        entity_health_text = transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
+        entity_health_text.text = entity_health.ToString() + "/" + entity_max_health.ToString();
     }
 }
