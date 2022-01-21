@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,18 +19,29 @@ public class CardBase : MonoBehaviour
     public int card_cost;           // 카드 비용
     public string card_content;     // 카드 내용
     public ClassType class_type;    // 직업 카드 정보
+    
+    public List<Tuple<SimpleTask, int>> card_task = new List<Tuple<SimpleTask, int>>();     // simple task가 저장 될 list
 
-    public List<SimpleTask> card_task = new List<SimpleTask>();     // simple task가 저장 될 list
-
-    FieldManager current_field;                                     // 현재 field manager를 scene에서 찾아서 저장
+    FieldManager current_field;     // 현재 field manager를 scene에서 찾아서 저장
 
     TextMeshPro card_cost_text;     // 카드 비용을 display 할 tmpro
     TextMeshPro card_name_text;     // 카드 이름을 display 할 tmpro
     TextMeshPro card_content_text;  // 카드 내용을 display 할 tmpro
 
-    private void Awake()
+    public Vector2 target_position;
+    float draw_speed = 10f;
+
+    public virtual void Awake()
     {
         current_field = GameObject.Find("FieldManager").GetComponent<FieldManager>();   // field manager를 scene에서 찾음
+
+        GameData game_data = GameObject.Find("GameData").GetComponent<GameData>();      // 게임 데이터 가져옴
+        Dictionary<string, string> card = game_data.card_list[0];
+        card_name = card["card_name"];
+        card_cost = int.Parse(card["card_cost"]);
+        card_content = card["card_content"];
+
+        target_position = transform.position;
     }
     protected void SetCardText()    // 카드 text를 설정하는 함수
     {
@@ -55,9 +67,9 @@ public class CardBase : MonoBehaviour
             current_field.current_energy -= card_cost;  // 비용만큼 에너지 소비
 
             int target_position = SelectTarget();       // 타겟 설정
-            foreach (SimpleTask task in this.card_task) // task가 들어있는 list에서 각 task 꺼냄
+            foreach (Tuple<SimpleTask, int> task in card_task) // task가 들어있는 list에서 각 task 꺼냄
             {
-                task.Task(target_position, 1);          // 타겟 위치에 task 실행
+                task.Item1.Task(target_position, task.Item2);          // 타겟 위치에 task 실행
             }
         }
     }
@@ -68,4 +80,8 @@ public class CardBase : MonoBehaviour
         return target_position;
     }
 
+    protected virtual void Update()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, target_position, Time.deltaTime * draw_speed);
+    }
 }

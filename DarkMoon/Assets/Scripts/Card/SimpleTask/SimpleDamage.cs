@@ -5,6 +5,7 @@ using UnityEngine;
 public class SimpleDamage : SimpleTask
 {
     FieldManager current_field = GameObject.Find("FieldManager").GetComponent<FieldManager>();
+
     public override void Task(int entity_position, int amount)
     {
         if (entity_position < 0 || entity_position >= current_field.enemy_entity.Length)

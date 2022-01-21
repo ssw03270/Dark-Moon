@@ -49,7 +49,7 @@ public class PlayerEntity : EntityBase
             if(deck.Count > 0)
             {
                 hand.Add(deck[0]);
-                hand_gameobject.Add(Instantiate(deck[0]).transform.gameObject);
+                hand_gameobject.Add(Instantiate(deck[0], new Vector3(-7, -3, 0), Quaternion.identity).transform.gameObject);
                 deck.RemoveAt(0);
             }
         }
@@ -64,6 +64,8 @@ public class PlayerEntity : EntityBase
             if(hand.Count > 0)
             {
                 discard_pile.Add(hand[0]);
+                Destroy(hand_gameobject[0]);
+                hand_gameobject.RemoveAt(0);
                 hand.RemoveAt(0);
             }
         }
@@ -98,8 +100,7 @@ public class PlayerEntity : EntityBase
             card_angle_in_hand[i] += extra_card_angle;
             card_angle_in_hand[i] -= 60;
             hand_gameobject[i].transform.localEulerAngles = new Vector3(0, 0, card_angle_in_hand[i]);
-            hand_gameobject[i].transform.position = new Vector3(0, -6, 0);
-            hand_gameobject[i].transform.position += hand_gameobject[i].transform.up * 5;
+            hand_gameobject[i].GetComponent<CardBase>().target_position = new Vector3(0, -6, 0) + hand_gameobject[i].transform.up * 5;
         }
     }
 }
