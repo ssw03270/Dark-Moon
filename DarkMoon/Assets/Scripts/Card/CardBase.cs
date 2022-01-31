@@ -15,15 +15,16 @@ public class CardBase : MonoBehaviour
         Normal              // 일반
     }
 
+    public int card_number;         // 카드 번호
     public string card_name;        // 카드 이름
     public int card_cost;           // 카드 비용
     public string card_content;     // 카드 내용
     public ClassType class_type;    // 직업 카드 정보
-    private int target_entitiy_position;
+    protected int target_entitiy_position;
     
     public List<Tuple<SimpleTask, int>> card_task = new List<Tuple<SimpleTask, int>>();     // simple task가 저장 될 list
 
-    FieldManager current_field;     // 현재 field manager를 scene에서 찾아서 저장
+    protected FieldManager current_field;     // 현재 field manager를 scene에서 찾아서 저장
 
     TextMeshPro card_cost_text;     // 카드 비용을 display 할 tmpro
     TextMeshPro card_name_text;     // 카드 이름을 display 할 tmpro
@@ -38,7 +39,7 @@ public class CardBase : MonoBehaviour
         current_field = GameObject.Find("FieldManager").GetComponent<FieldManager>();   // field manager를 scene에서 찾음
 
         GameData game_data = GameObject.Find("GameData").GetComponent<GameData>();      // 게임 데이터 가져옴
-        Dictionary<string, string> card = game_data.card_list[0];
+        Dictionary<string, string> card = game_data.card_list[card_number];
         card_name = card["card_name"];
         card_cost = int.Parse(card["card_cost"]);
         card_content = card["card_content"];
@@ -89,20 +90,16 @@ public class CardBase : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(mouse_position_2d, Vector2.zero);
                 if (hit.collider != null)
                 {
-                    if (hit.collider.gameObject == current_field.enemy_entity[0].gameObject)
+                    for (int i = 0; i < current_field.enemy_entity.Length; i++)
                     {
-                        target_entitiy_position = 0;
-                        UseCard();
-                    }
-                    else if (hit.collider.gameObject == current_field.enemy_entity[1].gameObject)
-                    {
-                        target_entitiy_position = 1;
-                        UseCard();
-                    }
-                    else if (hit.collider.gameObject == current_field.enemy_entity[2].gameObject)
-                    {
-                        target_entitiy_position = 2;
-                        UseCard();
+                        if (current_field.enemy_entity[i] != null)
+                        {
+                            if (hit.collider.gameObject == current_field.enemy_entity[i].gameObject)
+                            {
+                                target_entitiy_position = i;
+                                UseCard();
+                            }
+                        }
                     }
                 }
             }
