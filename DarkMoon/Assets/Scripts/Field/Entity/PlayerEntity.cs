@@ -35,6 +35,23 @@ public class PlayerEntity : EntityBase
         deck.Add(card);
     }
 
+    public void ActivateHand()
+    {
+        foreach (CardBase card in hand)
+        {
+            hand_gameobject.Add(Instantiate(card, new Vector3(-7, -3, 0), Quaternion.identity).transform.gameObject);
+        }
+        SortingCardInHand();
+    }
+
+    public void DeactivateHand()
+    {
+        while(hand_gameobject.Count > 0)
+        {
+            Destroy(hand_gameobject[0]);
+            hand_gameobject.RemoveAt(0);
+        }
+    }
     public void DeckToHand(int count)
     {
         while (count > 0)
@@ -49,11 +66,10 @@ public class PlayerEntity : EntityBase
             if (deck.Count > 0)
             {
                 hand.Add(deck[0]);
-                hand_gameobject.Add(Instantiate(deck[0], new Vector3(-7, -3, 0), Quaternion.identity).transform.gameObject);
+                
                 deck.RemoveAt(0);
             }
         }
-        SortingCardInHand();
     }
     public void HandToDiscardPile(int count)
     {
@@ -64,8 +80,6 @@ public class PlayerEntity : EntityBase
             if (hand.Count > 0)
             {
                 discard_pile.Add(hand[0]);
-                Destroy(hand_gameobject[0]);
-                hand_gameobject.RemoveAt(0);
                 hand.RemoveAt(0);
             }
         }

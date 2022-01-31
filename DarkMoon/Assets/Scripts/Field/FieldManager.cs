@@ -37,6 +37,8 @@ public class FieldManager : MonoBehaviour
             {
                 player_entity[i].HandToDiscardPile(player_entity[i].hand.Count);    // 손패를 버린 카드 더미로 옮김
             }
+
+            player_entity[current_player_number].DeactivateHand();
         }
         else    // 적 차례였다면 플레이어 차례로 변경
         {
@@ -47,7 +49,21 @@ public class FieldManager : MonoBehaviour
             {
                 player_entity[i].DeckToHand(hand_max_count);        // 덱에서 손패로 카드를 가져옴
             }
+
+            player_entity[current_player_number].ActivateHand();
         }
+    }
+
+    public void ActivatePlayer(int player_number)
+    {
+        player_entity[current_player_number].DeactivateHand();
+        current_player_number = player_number;
+        player_entity[current_player_number].ActivateHand();
+    }
+
+    public void AddCard(CardBase card)
+    {
+        player_entity[current_player_number].AddCardToDeck(card);
     }
 
     // end game
