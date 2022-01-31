@@ -13,18 +13,27 @@ public class EntityBase : MonoBehaviour
 
     public string entity_name;
     public EntityType entity_type;
-    public int entity_health;
+    // 초기 스펙 엔티티
     public int entity_max_health;
+    public int entity_strength;
+    public int entity_mana;
+    public int entity_avoid;
+    
+    //변화하는 엔티티
+    public int entity_health;
+    public int entity_guard;
+    public int entity_revival;
+    public int entity_blessing;
+
+    //상태이상
     public int entity_poison;
     public int entity_bleeding;
     public int entity_burn;
-    public int entity_avoid;
-    public int entity_strength;
     public int entity_weak;
-    public int entity_blessing;
+    
     public int entity_death;
-    public int entity_guard;
-    public int entity_revival;
+   
+
 
 
     TextMeshPro entity_health_text;
