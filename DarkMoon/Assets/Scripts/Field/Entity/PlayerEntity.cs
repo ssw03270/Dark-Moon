@@ -43,6 +43,14 @@ public class PlayerEntity : EntityBase
         }
         SortingCardInHand();
     }
+    public void ActivateHandTop()
+    {
+        if(hand_gameobject.Count < hand.Count)
+        {
+            hand_gameobject.Add(Instantiate(hand[hand.Count - 1], new Vector3(-7, -3, 0), Quaternion.identity).transform.gameObject);
+            SortingCardInHand();
+        }
+    }
 
     public void DeactivateHand()
     {

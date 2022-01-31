@@ -66,6 +66,12 @@ public class FieldManager : MonoBehaviour
         player_entity[current_player_number].AddCardToDeck(card);
     }
 
+    public void DrawCard()
+    {
+        player_entity[current_player_number].DeckToHand(1);
+        player_entity[current_player_number].ActivateHandTop();
+    }
+
     // end game
     public void GetRandomCards()        // 전투 끝, 카드 보상 획득 함수
     {
