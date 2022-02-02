@@ -35,9 +35,9 @@ public class TempCardDisplay : MonoBehaviour
         card_classType = card.class_type;
         card_rare = card.card_rare;
 
-        card_bg.sprite = card.card_bg;
-        card_rare_img.sprite = card.card_rare_img;
-        card_rare_name.sprite = card.card_rare_name;
+        card_bg.sprite = Resources.Load<Sprite>(card_classType.ToString() + "BG");
+        card_rare_img.sprite = Resources.Load<Sprite>(card_rare.ToString() + "_0");
+        card_rare_name.sprite = Resources.Load<Sprite>(card_rare.ToString() + "_1");
 
         card_price.text = card.card_price.ToString();
     }

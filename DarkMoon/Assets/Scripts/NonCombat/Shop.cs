@@ -13,7 +13,7 @@ public class Shop : MonoBehaviour
 
     private void Awake()
     {
-        ShopDisplay();
+        ShopCardDisplay(); // 상점에 카드 진열
     }
 
     public void ShopEnterButton()
@@ -26,7 +26,7 @@ public class Shop : MonoBehaviour
         shop_ui.anchoredPosition = Vector3.up * 1000; // 안 보이게 갖다 놓기
     }
 
-    private void ShopDisplay()
+    private void ShopCardDisplay()
     // 상점에 카드 진열 함수
     {
         if (shop_slots.childCount == shop_cards.Count)
@@ -38,21 +38,44 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void Buy()
+    public void BuyCard()
     {
-        int price = EventSystem.current.currentSelectedGameObject.GetComponent<TempCardDisplay>().card.card_price;
-        if (temp_manager.gold_amount >= price)
+        GameObject card_button = EventSystem.current.currentSelectedGameObject; // 클릭한 카드 버튼 오브젝트
+        int price = card_button.GetComponent<TempCardDisplay>().card.card_price; // 카드 구매 가격
+        if (temp_manager.gold_amount >= price) // 구매 가능하면
         {
             Debug.Log(price);
             temp_manager.gold_amount -= price;
             temp_manager.GoldUpdate();
 
-            // 구매한 아이템 등록 처리
+            card_button.SetActive(false);
+
+            // 구매한 카드 등록 처리 (덱에 넣기)
         }
-        else
+        else // 구매 불가능하면
         {
             Debug.Log("not enough money");
         }
         
+    }
+
+    public void RemoveCardBtn()
+    {
+        int price = 1000;
+
+        if (temp_manager.gold_amount >= price) // 돈 있으면
+        {
+            Debug.Log(price);
+            temp_manager.gold_amount -= price;
+            temp_manager.GoldUpdate();
+
+            // 카드 제거 UI 표시
+            // 제거할 카드 선택하면
+            // 덱에서 카드 제거
+        }
+        else // 돈 없으면
+        {
+            Debug.Log("not enough money");
+        }
     }
 }

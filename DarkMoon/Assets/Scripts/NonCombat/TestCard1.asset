@@ -15,9 +15,6 @@ MonoBehaviour:
   class_type: 0
   card_rare: 0
   card_name: TestCard1
-  card_image: {fileID: 21300000, guid: 8b1bf73e8da8aad4b9981707d88c54c0, type: 3}
   card_cost: 0
+  card_image: {fileID: 21300000, guid: 8b1bf73e8da8aad4b9981707d88c54c0, type: 3}
   card_price: 1000
-  card_bg: {fileID: -9095289688072098050, guid: f843c66dacf982746a82f8f7f42df97f, type: 3}
-  card_rare_img: {fileID: -2306392289679015388, guid: f843c66dacf982746a82f8f7f42df97f, type: 3}
-  card_rare_name: {fileID: -5923643485323027566, guid: f843c66dacf982746a82f8f7f42df97f, type: 3}
