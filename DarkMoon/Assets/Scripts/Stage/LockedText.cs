@@ -8,7 +8,7 @@ public class LockedText : MonoBehaviour
 
     private float text_destory_time = 1; 
 
-    void Update()  
+    void Update()
     {
         text_destory_time -= Time.deltaTime;  
         

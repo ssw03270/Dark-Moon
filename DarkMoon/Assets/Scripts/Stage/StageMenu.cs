@@ -23,7 +23,7 @@ public class StageMenu : MonoBehaviour
     public void BtnSt1(){   // Btn_St1을 클릭했을 때 실행되는 함수
 
         if(can_play_stage1){   // 해금이 된 스테이지일 경우
-            GoMap1.SetActive(true);  // 해당 map UI를 활성화 하고 
+            GoMap1.SetActive(true);  // 해당 map UI를 활성화 하고
             this.gameObject.SetActive(false);   // 현재 UI는 비활성화
         }
         
