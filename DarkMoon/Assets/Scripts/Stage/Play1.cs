@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Play1 : MonoBehaviour
+public class Play1 : MonoBehaviour  
 {
     
      public void BtnBack_Test(){  // test용 back button
@@ -10,7 +10,7 @@ public class Play1 : MonoBehaviour
         Destroy(this.gameObject);
 
         GameObject now = GameObject.Find("Map1").GetComponent<Map1>().now_play;
-        now.GetComponent<PlayBtn>().StateUpdate1();
+        now.GetComponent<PlayBtn>().StateUpdate();
         // can_play 업데이트 되도록, 색 바꾸기
 
         GameObject.Find("Map1").GetComponent<Map1>().is_first_play = false;

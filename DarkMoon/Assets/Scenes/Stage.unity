@@ -271,9 +271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   near_button:
   - {fileID: 1844859985}
-  play_number: 3
   can_play: 0
   PrefabPlay1: {fileID: 6428556224675646129, guid: b99c862ee9d5b4144bcf753554167a0b, type: 3}
+  current_map: {fileID: 0}
 --- !u!1 &11225699
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,9 +422,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   near_button:
   - {fileID: 848386734}
-  play_number: 4
   can_play: 0
   PrefabPlay1: {fileID: 6428556224675646129, guid: b99c862ee9d5b4144bcf753554167a0b, type: 3}
+  current_map: {fileID: 0}
 --- !u!1 &77302737
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,9 +732,9 @@ MonoBehaviour:
   near_button:
   - {fileID: 907720865}
   - {fileID: 1797459233}
-  play_number: 4
   can_play: 0
   PrefabPlay1: {fileID: 6428556224675646129, guid: b99c862ee9d5b4144bcf753554167a0b, type: 3}
+  current_map: {fileID: 0}
 --- !u!1 &137349352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,16 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023edbc4f8e98d349adcb4b786bde640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  play:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  play_number_st: 0
+  is_first_play: 1
   StageMenu: {fileID: 1362806982}
   now_play: {fileID: 0}
 --- !u!114 &336479563
@@ -2086,16 +2077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023edbc4f8e98d349adcb4b786bde640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  play:
-  - {fileID: 1061358997}
-  - {fileID: 1844859985}
-  - {fileID: 1565955}
-  - {fileID: 848386734}
-  - {fileID: 907720865}
-  - {fileID: 1797459233}
-  - {fileID: 11225701}
-  - {fileID: 136838620}
-  play_number_st: 1
+  is_first_play: 1
   StageMenu: {fileID: 1362806982}
   now_play: {fileID: 0}
 --- !u!114 &801387495
@@ -2388,9 +2370,9 @@ MonoBehaviour:
   - {fileID: 1844859985}
   - {fileID: 1797459233}
   - {fileID: 11225701}
-  play_number: 3
   can_play: 0
   PrefabPlay1: {fileID: 6428556224675646129, guid: b99c862ee9d5b4144bcf753554167a0b, type: 3}
+  current_map: {fileID: 0}
 --- !u!1 &907720863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,9 +2523,9 @@ MonoBehaviour:
   - {fileID: 1844859985}
   - {fileID: 1797459233}
   - {fileID: 136838620}
-  play_number: 3
   can_play: 0
   PrefabPlay1: {fileID: 6428556224675646129, guid: b99c862ee9d5b4144bcf753554167a0b, type: 3}
+  current_map: {fileID: 0}
 --- !u!1 &907921912
 GameObject:
   m_ObjectHideFlags: 0
@@ -3004,9 +2986,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   near_button:
   - {fileID: 1844859985}
-  play_number: 1
   can_play: 1
   PrefabPlay1: {fileID: 6428556224675646129, guid: b99c862ee9d5b4144bcf753554167a0b, type: 3}
+  current_map: {fileID: 0}
 --- !u!1 &1079334927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,7 +3606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1362806983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4141,9 +4123,9 @@ MonoBehaviour:
   - {fileID: 848386734}
   - {fileID: 907720865}
   - {fileID: 136838620}
-  play_number: 4
   can_play: 0
   PrefabPlay1: {fileID: 6428556224675646129, guid: b99c862ee9d5b4144bcf753554167a0b, type: 3}
+  current_map: {fileID: 0}
 --- !u!1 &1808405996
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,9 +4409,9 @@ MonoBehaviour:
   - {fileID: 1565955}
   - {fileID: 848386734}
   - {fileID: 907720865}
-  play_number: 2
   can_play: 0
   PrefabPlay1: {fileID: 6428556224675646129, guid: b99c862ee9d5b4144bcf753554167a0b, type: 3}
+  current_map: {fileID: 0}
 --- !u!1 &1891805732
 GameObject:
   m_ObjectHideFlags: 0

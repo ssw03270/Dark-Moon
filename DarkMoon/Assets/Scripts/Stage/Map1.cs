@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Map1 : MonoBehaviour
 {
 
-    public bool is_first_play;
+    public bool is_first_play;  // 현재 map에서 첫번째 플레이인지 판단하는 변수
     public GameObject StageMenu = null;  // back을 눌렀을 때 되돌아갈 StageMenu UI
-    public GameObject now_play = null;
+    public GameObject now_play = null;  // 현재 진행중인 play를 저장
 
 
     StageMenu stage_menu;
