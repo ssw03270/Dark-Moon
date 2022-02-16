@@ -6,71 +6,71 @@ using UnityEngine;
 public class FieldManager : MonoBehaviour
 {
     // battle ground
-    public PlayerEntity[] player_entity = new PlayerEntity[3];      // ÇÃ·¹ÀÌ¾î Áø¿µ Ä³¸¯ÅÍ ÀúÀåµÈ array
-    public EntityBase[] enemy_entity = new EntityBase[4];           // Àû Áø¿µ Ä³¸¯ÅÍ ÀúÀåµÈ array
+    public PlayerEntity[] player_entity = new PlayerEntity[3];      // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ array
+    public EntityBase[] enemy_entity = new EntityBase[4];           // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ array
 
-    public int current_player_number = 0;                           // ÇöÀç È°¼ºÈ­µÈ ÇÃ·¹ÀÌ¾î Áø¿µ Ä³¸¯ÅÍ ¹øÈ£
+    public int current_player_number = 0;                           // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 
-    public int hand_max_count = 5;                                  // ±âº» ÃÖ´ë ¼ÕÆÐ
+    public int hand_max_count = 5;                                  // ï¿½âº» ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    public int max_energy = 3;                                      // ±âº» ÃÖ´ë ¿¡³ÊÁö
-    public int current_energy = 3;                                  // ÇöÀç ¿¡³ÊÁö
+    public int max_energy = 3;                                      // ï¿½âº» ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public int current_energy = 3;                                  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    public bool is_player_turn = false;                             // ÇÃ·¹ÀÌ¾î ÅÏÀÌ¸é true, ¾Æ´Ï¸é false
+    public bool is_player_turn = false;                             // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ true, ï¿½Æ´Ï¸ï¿½ false
 
     // end game
-    public CardBase[] get_card_list = new CardBase[3];              // ÀüÅõ°¡ ³¡³­ ÈÄ, ÇÃ·¹ÀÌ¾î°¡ ¾ò°Ô µÉ Ä«µå º¸»ó 3Àå
+    public CardBase[] get_card_list = new CardBase[3];              // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½
 
     private void Start()
     {
-        NextTurn();     // ÇÃ·¹ÀÌ¾î Â÷·ÊºÎÅÍ ½ÃÀÛ
+        NextTurn();     // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Êºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     // battle ground
     public void NextTurn()
     {
-        if (is_player_turn)     // ÇÃ·¹ÀÌ¾î Â÷·Ê¿´´Ù¸é Àû Â÷·Ê·Î º¯°æ
+        if (is_player_turn)     // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ê·ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             is_player_turn = false;
 
             for(int i = 0; i < 3; i++)
             {
-                player_entity[i].HandToDiscardPile(player_entity[i].hand.Count);    // ¼ÕÆÐ¸¦ ¹ö¸° Ä«µå ´õ¹Ì·Î ¿Å±è
-            }
+                player_entity[i].HandToDiscardPile(player_entity[i].hand.Count);    // ï¿½ï¿½ï¿½Ð¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½Å±ï¿½
+            }  
         }
-        else    // Àû Â÷·Ê¿´´Ù¸é ÇÃ·¹ÀÌ¾î Â÷·Ê·Î º¯°æ
+        else    // ï¿½ï¿½ ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½Ù¸ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Ê·ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             is_player_turn = true;
-            current_energy = max_energy;        // ¿¡³ÊÁö´Â ÃÖ´ë·Î ¼³Á¤
+            current_energy = max_energy;        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
             for(int i = 0; i < 3; i++)
             {
-                player_entity[i].DeckToHand(hand_max_count);        // µ¦¿¡¼­ ¼ÕÆÐ·Î Ä«µå¸¦ °¡Á®¿È
+                player_entity[i].DeckToHand(hand_max_count);        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð·ï¿½ Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             }
         }
     }
 
     // end game
-    public void GetRandomCards()        // ÀüÅõ ³¡, Ä«µå º¸»ó È¹µæ ÇÔ¼ö
+    public void GetRandomCards()        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
-        GameData game_data = GameObject.Find("GameData").GetComponent<GameData>();      // °ÔÀÓ µ¥ÀÌÅÍ °¡Á®¿È
+        GameData game_data = GameObject.Find("GameData").GetComponent<GameData>();      // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         for(int i = 0; i < 3; i++)
         {
-            int random_number = Random.Range(0, game_data.card_list.Count);             // ¹«ÀÛÀ§ Ä«µå »ÌÀ½
-            string card_name = game_data.card_list[random_number]["card_name"];         // ¹«ÀÛÀ§·Î ¼±ÅÃµÈ Ä«µå ÀÌ¸§
-            string path = Application.dataPath + "/Prefab/" + card_name + ".prefab";    // ÇØ´ç Ä«µåÀÇ À§Ä¡ ¹ÝÈ¯
+            int random_number = Random.Range(0, game_data.card_list.Count);             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            string card_name = game_data.card_list[random_number]["card_name"];         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ Ä«ï¿½ï¿½ ï¿½Ì¸ï¿½
+            string path = Application.dataPath + "/Prefab/" + card_name + ".prefab";    // ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½È¯
 
-            get_card_list[i] = PrefabUtility.LoadPrefabContents(path).GetComponent<CardBase>();     // ÇØ´ç Ä«µåÀÇ prefab Á¤º¸ ÀúÀå
+            get_card_list[i] = PrefabUtility.LoadPrefabContents(path).GetComponent<CardBase>();     // ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ prefab ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             
             //Instantiate(get_card_list[i]);
         }
     }
-    public void GetRandomGold()        // ÀüÅõ ³¡, °ñµå º¸»ó È¹µæ ÇÔ¼ö
+    public void GetRandomGold()        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
 
     }
-    public void GetRandomEXP()        // ÀüÅõ ³¡, °æÇèÄ¡ º¸»ó È¹µæ ÇÔ¼ö
+    public void GetRandomEXP()        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
 
     }

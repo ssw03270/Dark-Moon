@@ -4,27 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayBase : MonoBehaviour
+public class PlayBase : MonoBehaviour  // map에서 진행되는 전투, 비전투 관련 script
 {
 
     public List<Button> near_button = new List<Button>();  // 인접한 칸(button)을 담은 list
     public bool can_play;  // 접근할 수 있는 칸인지 판단하는 변수
 
+
     public GameObject PrefabPlay1;  // play될 임시 UI 프리팹
-    public Map1 current_map;  // 현재 플레이 중인 map
+    public Map current_map;  // 현재 플레이 중인 map
 
     protected void Awake()
     {
-        current_map = GameObject.Find("Map1").GetComponent<Map1>();
+        current_map = transform.parent.gameObject.GetComponent<Map>();  // 현재 객체의 부모(Map)의 정보 가져옴
     }
-    
+ 
     public virtual void Play(){  // 칸을 클릭할 때 실행되는 함수 
             
         if(can_play){
             GameObject Play1 =  Instantiate(PrefabPlay1) as GameObject;  // 미리 설정된 프리팹 인스턴스화
-            Play1.transform.SetParent(GameObject.Find("Stage").transform);  // stage의 자식객체로 설정
+            Play1.transform.SetParent(current_map.transform);  // 현재 map의 자식객체로 설정
 
-            current_map.now_play = EventSystem.current.currentSelectedGameObject;  // now_play에 할당하여 현재 실행중인 play를 저장
+            current_map.CurrentPlay = EventSystem.current.currentSelectedGameObject;  // now_play에 할당하여 현재 실행중인 play를 저장
         }
     }
 
@@ -42,6 +43,5 @@ public class PlayBase : MonoBehaviour
 
         }
     }
-
     
 }
