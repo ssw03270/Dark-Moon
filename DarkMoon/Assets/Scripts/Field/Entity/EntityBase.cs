@@ -53,4 +53,6 @@ public class EntityBase : MonoBehaviour
         entity_health_text = transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
         entity_health_text.text = entity_health.ToString() + "/" + entity_max_health.ToString();
     }
+
+    
 }

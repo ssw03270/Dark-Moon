@@ -13,6 +13,7 @@ public class TempCard : ScriptableObject
     public ClassType class_type;
     public CardRare card_rare;
     public string card_name;
+    public string card_content;
     public int card_cost;
     
     [Header("Unique Image")]

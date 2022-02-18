@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayerEntity : EntityBase
 {
@@ -135,6 +136,17 @@ public class PlayerEntity : EntityBase
             hand_gameobject[i].transform.localEulerAngles = new Vector3(0, 0, card_angle_in_hand[i]);
             hand_gameobject[i].GetComponent<CardBase>().target_position = new Vector3(0, -6, 0) + hand_gameobject[i].transform.up * 5;
         }
+    }
+
+    public void SetPlayerEntityName()
+    {
+        TextAsset textFile = Resources.Load<TextAsset>("name");
+        string[] names = textFile.text.Split();
+
+        int random_index = Random.Range(0, names.Length);
+
+        entity_name = names[random_index];
+        Debug.Log(names[random_index]);
     }
 
     protected override void Update()

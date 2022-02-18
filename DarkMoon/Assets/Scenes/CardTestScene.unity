@@ -1306,19 +1306,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity_name: Mark
   entity_type: 0
-  entity_health: 40
   entity_max_health: 40
+  entity_strength: 0
+  entity_mana: 0
+  entity_avoid: 0
+  entity_health: 40
+  entity_guard: 0
+  entity_revival: 0
+  entity_blessing: 0
   entity_poison: 0
   entity_bleeding: 0
   entity_burn: 0
-  entity_avoid: 0
-  entity_strength: 0
   entity_weak: 0
-  entity_blessing: 0
   entity_death: 0
-  entity_guard: 0
-  entity_revival: 0
-  entity_health_text: {fileID: 0}
+  entity_health_text: {fileID: 1809929259}
   deck: []
   hand: []
   discard_pile: []
@@ -1626,19 +1627,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity_name: Skeleton
   entity_type: 1
-  entity_health: 20
   entity_max_health: 20
+  entity_strength: 0
+  entity_mana: 0
+  entity_avoid: 0
+  entity_health: 20
+  entity_guard: 0
+  entity_revival: 0
+  entity_blessing: 0
   entity_poison: 0
   entity_bleeding: 0
   entity_burn: 0
-  entity_avoid: 0
-  entity_strength: 0
   entity_weak: 0
-  entity_blessing: 0
   entity_death: 0
-  entity_guard: 0
-  entity_revival: 0
-  entity_health_text: {fileID: 0}
+  entity_health_text: {fileID: 1517205628}
   enemy_damage: 0
 --- !u!212 &607681107
 SpriteRenderer:
@@ -1898,19 +1900,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity_name: James
   entity_type: 0
-  entity_health: 60
   entity_max_health: 60
+  entity_strength: 0
+  entity_mana: 0
+  entity_avoid: 0
+  entity_health: 60
+  entity_guard: 0
+  entity_revival: 0
+  entity_blessing: 0
   entity_poison: 0
   entity_bleeding: 0
   entity_burn: 0
-  entity_avoid: 0
-  entity_strength: 0
   entity_weak: 0
-  entity_blessing: 0
   entity_death: 0
-  entity_guard: 0
-  entity_revival: 0
-  entity_health_text: {fileID: 0}
+  entity_health_text: {fileID: 1078254573}
   deck: []
   hand: []
   discard_pile: []
@@ -2455,19 +2458,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity_name: Skeleton
   entity_type: 1
-  entity_health: 20
   entity_max_health: 20
+  entity_strength: 0
+  entity_mana: 0
+  entity_avoid: 0
+  entity_health: 20
+  entity_guard: 0
+  entity_revival: 0
+  entity_blessing: 0
   entity_poison: 0
   entity_bleeding: 0
   entity_burn: 0
-  entity_avoid: 0
-  entity_strength: 0
   entity_weak: 0
-  entity_blessing: 0
   entity_death: 0
-  entity_guard: 0
-  entity_revival: 0
-  entity_health_text: {fileID: 0}
+  entity_health_text: {fileID: 2143134171}
   enemy_damage: 0
 --- !u!212 &1359098003
 SpriteRenderer:
@@ -3046,19 +3050,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity_name: Tom
   entity_type: 0
-  entity_health: 50
   entity_max_health: 50
+  entity_strength: 0
+  entity_mana: 0
+  entity_avoid: 0
+  entity_health: 50
+  entity_guard: 0
+  entity_revival: 0
+  entity_blessing: 0
   entity_poison: 0
   entity_bleeding: 0
   entity_burn: 0
-  entity_avoid: 0
-  entity_strength: 0
   entity_weak: 0
-  entity_blessing: 0
   entity_death: 0
-  entity_guard: 0
-  entity_revival: 0
-  entity_health_text: {fileID: 0}
+  entity_health_text: {fileID: 364318660}
   deck: []
   hand: []
   discard_pile: []
@@ -3869,19 +3874,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity_name: Skeleton
   entity_type: 1
-  entity_health: 20
   entity_max_health: 20
+  entity_strength: 0
+  entity_mana: 0
+  entity_avoid: 0
+  entity_health: 20
+  entity_guard: 0
+  entity_revival: 0
+  entity_blessing: 0
   entity_poison: 0
   entity_bleeding: 0
   entity_burn: 0
-  entity_avoid: 0
-  entity_strength: 0
   entity_weak: 0
-  entity_blessing: 0
   entity_death: 0
-  entity_guard: 0
-  entity_revival: 0
-  entity_health_text: {fileID: 0}
+  entity_health_text: {fileID: 399320583}
   enemy_damage: 0
 --- !u!212 &2010865596
 SpriteRenderer:

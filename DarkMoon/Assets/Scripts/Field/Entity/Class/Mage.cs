@@ -8,10 +8,10 @@ public class Mage : PlayerEntity
     // Start is called before the first frame update
     void Start()
     {
-        class_type = ClassType.Mage;    // Á÷¾÷: ¸¶¹ý»ç
+        class_type = ClassType.Mage;    // ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
-    public void StartSpec() // ½ºÅÝÀ» Á¤ÇÏ´Â ÇÔ¼ö
+    public void StartSpec() // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     {
         entity_max_health = Random.Range(40,71);
         entity_strength = Random.Range(10,31);
