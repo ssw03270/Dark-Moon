@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayBtn : PlayBase  // map에서 진행되는 전투, 비전투 관련 script
+public class PlayBtn : PlayBase  // map에서 진행되는 play 관련 script
 {
 
     public override void Play(){  // 칸을 클릭할 때 실행되는 함수 

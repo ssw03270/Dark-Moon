@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayBase : MonoBehaviour  // map에서 진행되는 전투, 비전투 관련 script
+public class PlayBase : MonoBehaviour  // map에서 진행되는 play 관련 script
 {
 
     public List<Button> near_button = new List<Button>();  // 인접한 칸(button)을 담은 list
@@ -22,10 +22,31 @@ public class PlayBase : MonoBehaviour  // map에서 진행되는 전투, 비전�
     public virtual void Play(){  // 칸을 클릭할 때 실행되는 함수 
             
         if(can_play){
-            GameObject Play1 =  Instantiate(PrefabPlay1) as GameObject;  // 미리 설정된 프리팹 인스턴스화
-            Play1.transform.SetParent(current_map.transform);  // 현재 map의 자식객체로 설정
 
-            current_map.CurrentPlay = EventSystem.current.currentSelectedGameObject;  // now_play에 할당하여 현재 실행중인 play를 저장
+            GameObject current_button = EventSystem.current.currentSelectedGameObject;
+
+            if(current_button.tag == "Battle"){
+                GameObject Play1 =  Instantiate(current_map.PlayPrefab[0]) as GameObject;  // 미리 설정된 프리팹 인스턴스화
+                Play1.transform.SetParent(current_map.transform);  // 현재 map의 자식객체로 설정
+            }
+            else if(current_button.tag == "Treasure"){
+                GameObject Play1 =  Instantiate(current_map.PlayPrefab[1]) as GameObject; 
+                Play1.transform.SetParent(current_map.transform);  
+            }
+            else if(current_button.tag == "Trap"){
+                GameObject Play1 =  Instantiate(current_map.PlayPrefab[2]) as GameObject;  
+                Play1.transform.SetParent(current_map.transform);  
+            }
+            else if(current_button.tag == "Boss"){
+                GameObject Play1 =  Instantiate(current_map.PlayPrefab[4]) as GameObject;  
+                Play1.transform.SetParent(current_map.transform);  
+            }
+            else {
+                GameObject Play1 =  Instantiate(current_map.PlayPrefab[3]) as GameObject;  
+                Play1.transform.SetParent(current_map.transform);  
+            }
+
+            current_map.CurrentPlay = current_button;  // now_play에 할당하여 현재 실행중인 play를 저장
         }
     }
 
@@ -33,13 +54,16 @@ public class PlayBase : MonoBehaviour  // map에서 진행되는 전투, 비전�
         
         for(int i = 0; i<near_button.Count; i++){  // 인접한 칸들을 접근 가능한 상태로 변경
 
-            PlayBtn playbtn = near_button[i].GetComponent<PlayBtn>();  // 각 칸의 PlayBtn 스크립트에 접근하기 위하여 미리 선언해둠
+            Button playbtn = near_button[i];  // 각 칸의 PlayBtn 스크립트에 접근하기 위하여 미리 선언해둠
 
-            playbtn.can_play = true;  // 접근 가능한 상태로 변경
+            playbtn.GetComponent<PlayBtn>().can_play = true;  // 접근 가능한 상태로 변경
 
-            ColorBlock colorBlock = near_button[i].colors;  // 색을 흰색으로 변경
-            colorBlock.normalColor = new Color(1f,1f,1f); 
-            near_button[i].colors = colorBlock;
+            ColorBlock colorBlock = playbtn.colors;  // 색 변경
+            if(playbtn.tag == "Boss")
+                colorBlock.normalColor = new Color(1f,0f,0f);
+            else
+                colorBlock.normalColor = new Color(1f,1f,1f);
+            playbtn.colors = colorBlock;
 
         }
     }

@@ -1598,6 +1598,14 @@ MonoBehaviour:
   - {fileID: 1079334929}
   - {fileID: 1722236106}
   - {fileID: 768506476}
+  Maps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   current_stage: 0
 --- !u!114 &1362806984
 MonoBehaviour:

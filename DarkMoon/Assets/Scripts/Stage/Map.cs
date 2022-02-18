@@ -8,7 +8,8 @@ public class Map : MonoBehaviour
 
     public bool is_first_play;  // 현재 map에서 첫번째 플레이인지 판단하는 변수
     public GameObject StageMenu = null;  // back을 눌렀을 때 되돌아갈 StageMenu UI
-    public GameObject CurrentPlay = null;  // 현재 진행중인 play를 저장
+    public GameObject CurrentPlay = null;  // 현재 진행중인 칸을 저장
+    public List<GameObject> PlayPrefab = new List<GameObject>();
 
 
     StageMenu stage_menu;
