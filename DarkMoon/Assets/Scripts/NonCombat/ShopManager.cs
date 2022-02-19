@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Shop : MonoBehaviour
+public class ShopManager : MonoBehaviour
 {
     public RectTransform shop_ui; // 상점 UI
     public RectTransform shop_slots; // 상점 슬롯 부모
@@ -18,14 +18,14 @@ public class Shop : MonoBehaviour
 
     public void ShopEnterButton()
     {
-        shop_ui.gameObject.SetActive(true);
+        //shop_ui.gameObject.SetActive(true);
         shop_ui.anchoredPosition = Vector3.zero; // 상점 위치로 갖다 놓기
     }
 
     public void ShopExitButton()
     {
         shop_ui.anchoredPosition = Vector3.up * 1000; // 안 보이게 갖다 놓기
-        shop_ui.gameObject.SetActive(false);
+        //shop_ui.gameObject.SetActive(false);
     }
 
     private void ShopCardDisplay()

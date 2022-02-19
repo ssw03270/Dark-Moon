@@ -146,6 +146,7 @@ public class PlayerEntity : EntityBase
         int random_index = Random.Range(0, names.Length);
 
         entity_name = names[random_index];
+        
         Debug.Log(names[random_index]);
     }
 
