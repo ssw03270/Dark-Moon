@@ -37,7 +37,7 @@
     {
         "card_name": "Parrying",
         "class_type": "Warrior",
-        "target_type": "Enemy",
+        "target_type": "Player",
         "card_cost": "2",
         "card_content": "자신에게 수비를 10 부여한다."
     }
