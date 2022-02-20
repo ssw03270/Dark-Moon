@@ -30,7 +30,7 @@ public class Execution : CardBase
                 current_field.current_energy -= card_cost;  // 비용만큼 에너지 소비
                 foreach (Tuple<SimpleTask, int> task in card_task) // task가 들어있는 list에서 각 task 꺼냄
                 {
-                    task.Item1.Task(target_entitiy_position, task.Item2);          // 타겟 위치에 task 실행
+                    task.Item1.Task(false, target_entitiy_position, task.Item2);          // 타겟 위치에 task 실행
                 }
                 current_field.player_entity[current_field.current_player_number].HandToDiscardPile(this.gameObject);
             }

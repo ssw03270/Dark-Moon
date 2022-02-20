@@ -5,7 +5,7 @@ using UnityEngine;
 public class SimpleTask : MonoBehaviour
 {
     // Start is called before the first frame update
-    public virtual void Task(int entity_position, int amount)
+    public virtual void Task(bool isPlayer, int entity_position, int amount)
     {
 
     }

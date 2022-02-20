@@ -641,10 +641,9 @@ MonoBehaviour:
   entity_name: Mark
   entity_type: 0
   entity_max_health: 40
-  entity_strength: 0
-  entity_mana: 0
-  entity_avoid: 0
   entity_health: 40
+  entity_strength: 0
+  entity_avoid: 0
   entity_guard: 0
   entity_revival: 0
   entity_blessing: 0
@@ -854,10 +853,9 @@ MonoBehaviour:
   entity_name: Skeleton
   entity_type: 1
   entity_max_health: 20
-  entity_strength: 0
-  entity_mana: 0
-  entity_avoid: 0
   entity_health: 20
+  entity_strength: 0
+  entity_avoid: 0
   entity_guard: 0
   entity_revival: 0
   entity_blessing: 0
@@ -994,10 +992,9 @@ MonoBehaviour:
   entity_name: James
   entity_type: 0
   entity_max_health: 60
-  entity_strength: 0
-  entity_mana: 0
-  entity_avoid: 0
   entity_health: 60
+  entity_strength: 0
+  entity_avoid: 0
   entity_guard: 0
   entity_revival: 0
   entity_blessing: 0
@@ -1311,10 +1308,9 @@ MonoBehaviour:
   entity_name: Skeleton
   entity_type: 1
   entity_max_health: 20
-  entity_strength: 0
-  entity_mana: 0
-  entity_avoid: 0
   entity_health: 20
+  entity_strength: 0
+  entity_avoid: 0
   entity_guard: 0
   entity_revival: 0
   entity_blessing: 0
@@ -1664,10 +1660,9 @@ MonoBehaviour:
   entity_name: Tom
   entity_type: 0
   entity_max_health: 50
-  entity_strength: 0
-  entity_mana: 0
-  entity_avoid: 0
   entity_health: 50
+  entity_strength: 0
+  entity_avoid: 0
   entity_guard: 0
   entity_revival: 0
   entity_blessing: 0
@@ -1981,10 +1976,9 @@ MonoBehaviour:
   entity_name: Skeleton
   entity_type: 1
   entity_max_health: 20
-  entity_strength: 0
-  entity_mana: 0
-  entity_avoid: 0
   entity_health: 20
+  entity_strength: 0
+  entity_avoid: 0
   entity_guard: 0
   entity_revival: 0
   entity_blessing: 0
@@ -2379,7 +2373,7 @@ PrefabInstance:
     - target: {fileID: 8648408924348392556, guid: adc5c0913e380ae41bb4dfd187624c11, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1417569962415928654, guid: 45e6e491a9d3b9746badb65996b81f66, type: 3}
+      objectReference: {fileID: 979816312162571526, guid: f6ab25b2cd2e62240b786982203fb794, type: 3}
     - target: {fileID: 8648408924548830115, guid: adc5c0913e380ae41bb4dfd187624c11, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

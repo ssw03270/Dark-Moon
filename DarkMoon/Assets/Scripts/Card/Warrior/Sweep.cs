@@ -33,7 +33,7 @@ public class Sweep : CardBase
                 for(int i = 0; i < current_field.enemy_entity.Length; i++)
                 {
                     if(current_field.enemy_entity[i] != null)
-                        task.Item1.Task(i, task.Item2);          // 타겟 위치에 task 실행
+                        task.Item1.Task(false, i, task.Item2);          // 타겟 위치에 task 실행
                 }
             }
             current_field.player_entity[current_field.current_player_number].HandToDiscardPile(this.gameObject);
