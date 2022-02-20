@@ -40,5 +40,12 @@
         "target_type": "Player",
         "card_cost": "2",
         "card_content": "자신에게 수비를 10 부여한다."
+    },
+    {
+        "card_name": "Vital Attack",
+        "class_type": "Rogue",
+        "target_type": "Enemy",
+        "card_cost": "1",
+        "card_content": "적을 급습해 %d1의 데미지와 약화를 2 부여한다."
     }
 ]
