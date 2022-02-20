@@ -13,6 +13,8 @@ public class SimpleDamage : SimpleTask
             Debug.Assert(true, "Wrong Entity Position");
             return;
         }
-        current_field.enemy_entity[entity_position].entity_health -= amount;
+        float damage = amount + (current_field.player_entity[current_field.current_player_number].entity_strength);
+        damage = (current_field.player_entity[current_field.current_player_number].entity_blessing >= 1) ? 1.5f * damage : damage;
+        current_field.enemy_entity[entity_position].entity_health -= Mathf.RoundToInt(damage);
     }
 }
