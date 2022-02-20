@@ -75,7 +75,7 @@ public class EntityBase : MonoBehaviour
         }
 
         entity_avoid -= (entity_avoid > 0) ? 1 : 0;
-        entity_strength -= (entity_strength > 0) ? 1 : 0;
+        entity_strength = 0;
         entity_weak -= (entity_weak > 0) ? 1 : 0;
         entity_blessing -= (entity_blessing > 0) ? 1 : 0;
         entity_death -= (entity_death > 0) ? 1 : 0;

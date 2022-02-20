@@ -32,7 +32,7 @@
         "class_type": "Warrior",
         "target_type": "Player",
         "card_cost": "2",
-        "card_content": "자신에게 힘 3과 약화 3을 부여한다."
+        "card_content": "광폭화에 빠지는 대신 자신에게 힘 3과 약화 3을 부여한다."
     },
     {
         "card_name": "Parrying",
@@ -47,5 +47,12 @@
         "target_type": "Enemy",
         "card_cost": "1",
         "card_content": "적을 급습해 %d1의 데미지와 약화를 2 부여한다."
+    },
+    {
+        "card_name": "Poison Spray",
+        "class_type": "Rogue",
+        "target_type": "Enemy",
+        "card_cost": "3",
+        "card_content": "적에게 독을 분사해 독을 3 부여한다."
     }
 ]

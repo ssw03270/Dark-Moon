@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimplePoison : SimpleTask
 {
-    FieldManager current_field;
+    FieldManager current_field = GameObject.Find("FieldManager").GetComponent<FieldManager>();
 
     public override void Task(bool isPlayer, int entity_position, int amount)
     {
