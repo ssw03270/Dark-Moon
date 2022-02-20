@@ -14,7 +14,6 @@ public class Warrior : PlayerEntity
     {
         entity_max_health = Random.Range(70,101);
         entity_strength = Random.Range(60,91);
-        entity_mana = Random.Range(1,3);
         entity_avoid = Random.Range(20,51);        
     }
 

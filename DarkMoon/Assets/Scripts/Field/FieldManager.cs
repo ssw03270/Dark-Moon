@@ -36,6 +36,7 @@ public class FieldManager : MonoBehaviour
             for(int i = 0; i < 3; i++)
             {
                 player_entity[i].HandToDiscardPile(player_entity[i].hand.Count);    // 손패를 버린 카드 더미로 옮김
+                enemy_entity[i].NextTurn();
             }
 
             player_entity[current_player_number].DeactivateHand();
@@ -48,6 +49,7 @@ public class FieldManager : MonoBehaviour
             for(int i = 0; i < 3; i++)
             {
                 player_entity[i].DeckToHand(hand_max_count);        // 덱에서 손패로 카드를 가져옴
+                player_entity[i].NextTurn();
             }
 
             player_entity[current_player_number].ActivateHand();

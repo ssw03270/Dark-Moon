@@ -14,7 +14,6 @@ public class Rogue : PlayerEntity
     {
         entity_max_health = Random.Range(40,71);
         entity_strength = Random.Range(50,81);
-        entity_mana = Random.Range(1,4);
         entity_avoid = Random.Range(80,101);        
     }
 
