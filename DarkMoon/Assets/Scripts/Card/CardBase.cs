@@ -15,12 +15,19 @@ public class CardBase : MonoBehaviour
         Normal              // 일반
     }
 
+    public enum TargetType
+    {
+        Player,             // 플레이어를 선택하는 카드
+        Enemy               // 적을 선택하는 카드
+    }
+
     public int card_number;         // 카드 번호
     public string card_name;        // 카드 이름
     public int card_cost;           // 카드 비용
     public string card_content;     // 카드 내용
     public ClassType class_type;    // 직업 카드 정보
-    protected int target_entitiy_position;
+    public TargetType target_type; // 타겟 정보
+    public int target_entitiy_position;  // 타겟 위치
     
     public List<Tuple<SimpleTask, int>> card_task = new List<Tuple<SimpleTask, int>>();     // simple task가 저장 될 list
 
@@ -43,6 +50,35 @@ public class CardBase : MonoBehaviour
         card_name = card["card_name"];
         card_cost = int.Parse(card["card_cost"]);
         card_content = card["card_content"];
+
+        switch (card["class_type"])
+        {
+            case "Mage":
+                class_type = ClassType.Mage;
+                break;
+            case "Priest":
+                class_type = ClassType.Priest;
+                break;
+            case "Rogue":
+                class_type = ClassType.Rogue;
+                break;
+            case "Warrior":
+                class_type = ClassType.Warrior;
+                break;
+            case "Normal":
+                class_type = ClassType.Normal;
+                break;
+        }
+
+        switch (card["target_type"])
+        {
+            case "Player":
+                target_type = TargetType.Player;
+                break;
+            case "Enemy":
+                target_type = TargetType.Enemy;
+                break;
+        }
 
         target_position = transform.position;
     }
@@ -90,14 +126,31 @@ public class CardBase : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(mouse_position_2d, Vector2.zero);
                 if (hit.collider != null)
                 {
-                    for (int i = 0; i < current_field.enemy_entity.Length; i++)
+                    if(target_type == TargetType.Enemy)
                     {
-                        if (current_field.enemy_entity[i] != null)
+                        for (int i = 0; i < current_field.enemy_entity.Length; i++)
                         {
-                            if (hit.collider.gameObject == current_field.enemy_entity[i].gameObject)
+                            if (current_field.enemy_entity[i] != null)
                             {
-                                target_entitiy_position = i;
-                                UseCard();
+                                if (hit.collider.gameObject == current_field.enemy_entity[i].gameObject)
+                                {
+                                    target_entitiy_position = i;
+                                    UseCard();
+                                }
+                            }
+                        }
+                    }
+                    else if (target_type == TargetType.Player)
+                    {
+                        for (int i = 0; i < current_field.player_entity.Length; i++)
+                        {
+                            if (current_field.player_entity[i] != null)
+                            {
+                                if (hit.collider.gameObject == current_field.player_entity[i].gameObject)
+                                {
+                                    target_entitiy_position = i;
+                                    UseCard();
+                                }
                             }
                         }
                     }
