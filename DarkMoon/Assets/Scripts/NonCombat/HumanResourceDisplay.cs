@@ -7,21 +7,20 @@ using TMPro;
 public class HumanResourceDisplay : MonoBehaviour
 {
     public PlayerEntity player_entity;
-    public TextMeshProUGUI entity_name;
+    public PlayerEntityData player_entity_data; // 스텟~~
+    public TextMeshProUGUI entity_name_text;
 
     public Image entity_image;
 
-    // 스텟~~
-    
     public TextMeshProUGUI entity_price;
 
     private void Start()
     {
-        entity_name.text = player_entity.entity_name;
+        entity_name_text.text = player_entity_data.entity_name;
 
-        entity_image.sprite = player_entity.GetComponent<SpriteRenderer>().sprite;
+        entity_image.sprite = Resources.Load<Sprite>("Player/" + player_entity_data.class_type.ToString());
 
-        // entity_price;
+        // entity_price.text = ~;
     }
 
 

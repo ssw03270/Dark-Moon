@@ -8,7 +8,11 @@ public class HumanResourceManager : MonoBehaviour
     public RectTransform human_resource_slots; // 인력소 슬롯 부모
     public TempManager temp_manager; // 골드 관리용 게임매니저(임시)
 
-    public List<PlayerEntity> player_entity_Prefab = new List<PlayerEntity>();
+    //public List<PlayerEntity> player_entity_Prefab = new List<PlayerEntity>();
+    public Mage mage_Prefab;
+    public Priest priest_Prefab;
+    public Rogue rogue_Prefab;
+    public Warrior warrior_Prefab;
 
     private void Awake()
     {
@@ -36,25 +40,21 @@ public class HumanResourceManager : MonoBehaviour
 
             switch (random_class)
             {
-                case 0:
-                    human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity = player_entity_Prefab[random_class];
-                    human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity.GetComponent<Mage>().StartSpec();
-
+                case 0: // Mage
+                    mage_Prefab.StartSpec();
+                    mage_Prefab.SetSpec(human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity_data);
                     break;
-                case 1:
-                    human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity = player_entity_Prefab[random_class];
-                    human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity.GetComponent<Priest>().StartSpec();
-
+                case 1: // Priest
+                    priest_Prefab.StartSpec();
+                    priest_Prefab.SetSpec(human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity_data);
                     break;
-                case 2:
-                    human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity = player_entity_Prefab[random_class];
-                    human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity.GetComponent<Rogue>().StartSpec();
-
+                case 2: // Rogue
+                    rogue_Prefab.StartSpec();
+                    rogue_Prefab.SetSpec(human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity_data);
                     break;
-                case 3:
-                    human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity = player_entity_Prefab[random_class];
-                    human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity.GetComponent<Warrior>().StartSpec();
-
+                case 3: // Warrior
+                    warrior_Prefab.StartSpec();
+                    warrior_Prefab.SetSpec(human_resource_slots.GetChild(i).GetComponent<HumanResourceDisplay>().player_entity_data);
                     break;
                 default:
                     break;

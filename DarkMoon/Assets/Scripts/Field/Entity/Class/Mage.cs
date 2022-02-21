@@ -20,6 +20,16 @@ public class Mage : PlayerEntity
         base.SetPlayerEntityName();
     }
 
+    public void SetSpec(PlayerEntityData data)  // PlayerEntityData에 능력치 세팅 함수
+    {
+        data.entity_name = entity_name;
+        data.entity_max_health = entity_max_health;
+        data.entity_strength = entity_strength;
+        data.entity_mana = entity_mana;
+        data.entity_avoid = entity_avoid;
+        data.class_type = global::ClassType.Mage;
+    }
+
     // Update is called once per frame
     protected override void Update()
     {

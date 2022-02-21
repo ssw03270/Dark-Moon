@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59528646719903173}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5000001, y: 1.5000001, z: 1}
   m_Children:
@@ -125,7 +125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: BuyCard
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -148,7 +148,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_entity: {fileID: 0}
-  entity_name: {fileID: 3625387891299062940}
+  player_entity_data:
+    entity_name: 
+    class_type: 0
+    entity_max_health: 0
+    entity_strength: 0
+    entity_mana: 0
+    entity_avoid: 0
+  entity_name_text: {fileID: 3625387891299062940}
   entity_image: {fileID: 3625387891156917637}
   entity_price: {fileID: 6674697890179796731}
 --- !u!1 &3625387891156917635

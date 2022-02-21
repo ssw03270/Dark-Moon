@@ -19,6 +19,16 @@ public class Priest : PlayerEntity
         base.SetPlayerEntityName();        
     }
 
+    public void SetSpec(PlayerEntityData data)
+    {
+        data.entity_name = entity_name;
+        data.entity_max_health = entity_max_health;
+        data.entity_strength = entity_strength;
+        data.entity_mana = entity_mana;
+        data.entity_avoid = entity_avoid;
+        data.class_type = global::ClassType.Priest;
+    }
+
     // Update is called once per frame
     protected override void Update()
     {

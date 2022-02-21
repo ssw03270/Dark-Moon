@@ -1048,6 +1048,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745584998}
   m_CullTransparentMesh: 1
+--- !u!114 &750646028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3625387891299062940, guid: ce2e2c91ed5e7b8418dc25eccf0bca38, type: 3}
+  m_PrefabInstance: {fileID: 806103132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &786038506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity Buy Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 59528646719903174, guid: ce2e2c91ed5e7b8418dc25eccf0bca38, type: 3}
+      propertyPath: entity_name_text
+      value: 
+      objectReference: {fileID: 750646028}
     - target: {fileID: 4735139591708825197, guid: ce2e2c91ed5e7b8418dc25eccf0bca38, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1816,11 +1831,10 @@ MonoBehaviour:
   human_resource_ui: {fileID: 1932463551}
   human_resource_slots: {fileID: 950069479}
   temp_manager: {fileID: 2121742977}
-  player_entity_Prefab:
-  - {fileID: 1148394597820503815, guid: 33206e904fa357f42821a7ca54afef47, type: 3}
-  - {fileID: -8708029410158554690, guid: 9f77119a10ebb96478fe3ee0daddce5f, type: 3}
-  - {fileID: 8073386164747159099, guid: c070219be3b1ab24e8b64b43902a5a07, type: 3}
-  - {fileID: 5418604242505331239, guid: eeef8f86ef80378498ab920b7b54f970, type: 3}
+  mage_Prefab: {fileID: 1148394597820503815, guid: 33206e904fa357f42821a7ca54afef47, type: 3}
+  priest_Prefab: {fileID: -8708029410158554690, guid: 9f77119a10ebb96478fe3ee0daddce5f, type: 3}
+  rogue_Prefab: {fileID: 8073386164747159099, guid: c070219be3b1ab24e8b64b43902a5a07, type: 3}
+  warrior_Prefab: {fileID: 5418604242505331239, guid: eeef8f86ef80378498ab920b7b54f970, type: 3}
 --- !u!1 &1226525530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,6 +3072,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4735139591708825197, guid: ce2e2c91ed5e7b8418dc25eccf0bca38, type: 3}
   m_PrefabInstance: {fileID: 806103132}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1772318279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3625387891299062940, guid: ce2e2c91ed5e7b8418dc25eccf0bca38, type: 3}
+  m_PrefabInstance: {fileID: 1976592702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1790819801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,6 +3394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity Buy Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 59528646719903174, guid: ce2e2c91ed5e7b8418dc25eccf0bca38, type: 3}
+      propertyPath: entity_name_text
+      value: 
+      objectReference: {fileID: 1772318279}
     - target: {fileID: 4735139591708825197, guid: ce2e2c91ed5e7b8418dc25eccf0bca38, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3511,10 +3540,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity Buy Button
       objectReference: {fileID: 0}
-    - target: {fileID: 484196962469277655, guid: ce2e2c91ed5e7b8418dc25eccf0bca38, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1195594012}
     - target: {fileID: 4735139591708825197, guid: ce2e2c91ed5e7b8418dc25eccf0bca38, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
