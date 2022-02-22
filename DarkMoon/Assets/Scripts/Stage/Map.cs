@@ -23,15 +23,6 @@ public class Map : MonoBehaviour
         this.gameObject.SetActive(false);  // 현재 UI는 비활성화
 
 
-        // 스테이지 해금 -> stage를 클리어했을 때 실행될 코드
-        Button NextStage = stage_menu.StageBtn[stage_menu.current_stage]; // 다음 스테이지의 button을 가져옴
-        NextStage.GetComponent<StageBtn>().can_play_stage = true;  // can_play_stage를 true로 바꾸어 접근가능하도록 설정
-
-        Button bt = NextStage;  // 스테이지 해금됐을 때 색 바뀌도록
-        ColorBlock colorBlock = bt.colors;
-        colorBlock.normalColor = new Color(1f,1f,1f); 
-        bt.colors = colorBlock;
-
     }
 
 }
