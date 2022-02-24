@@ -20,12 +20,20 @@ public class PlayBtn : PlayBase  // map에서 진행되는 play 관련 script
         }
         else{
             base.Play();
-        }
-        
+        }  
     }
 
+    public override void StateUpdate(){  // play를 클리어할 때 실행되는 함수 -> 인접한 칸을 접근 가능한 상태로
 
-    public override void StateUpdate(){  //  play를 클리어할 때 실행되는 함수 
+        ColorBlock colorBlock = current_map.CurrentPlay.GetComponent<Button>().colors;  // 색 변경
+        if(cleared_play){
+            colorBlock.normalColor = Color.white;
+            base.StateUpdate();
+        }
+        else
+            base.StateUpdate();
+        current_map.CurrentPlay.GetComponent<Button>().colors = colorBlock;
+
         base.StateUpdate();
     }
     

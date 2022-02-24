@@ -13,6 +13,7 @@ public class PlayBase : MonoBehaviour  // map에서 진행되는 play 관련 scr
 
     public GameObject PrefabPlay1;  // play될 임시 UI 프리팹
     public Map current_map;  // 현재 플레이 중인 map
+    public bool cleared_play;
 
     protected void Awake()
     {
@@ -43,26 +44,27 @@ public class PlayBase : MonoBehaviour  // map에서 진행되는 play 관련 scr
             }
             else {
                 GameObject Play1 =  Instantiate(current_map.PlayPrefab[3]) as GameObject;  
-                Play1.transform.SetParent(current_map.transform);  
+                Play1.transform.SetParent(current_map.transform);
+
             }
 
             current_map.CurrentPlay = current_button;  // now_play에 할당하여 현재 실행중인 play를 저장
         }
     }
 
-    public virtual void StateUpdate(){  //  play를 클리어할 때 실행되는 함수 
+    public virtual void StateUpdate(){  //  play를 클리어할 때 실행되는 함수 -> 인접한 칸을 접근 가능한 상태로 
         
-        for(int i = 0; i<near_button.Count; i++){  // 인접한 칸들을 접근 가능한 상태로 변경
+        for(int i = 0; i<near_button.Count; i++){ 
 
-            Button playbtn = near_button[i];  // 각 칸의 PlayBtn 스크립트에 접근하기 위하여 미리 선언해둠
+            Button playbtn = near_button[i];  // 각 칸의 PlayBtn 스크립트에 접근하기 위하여 미리 선언
 
             playbtn.GetComponent<PlayBtn>().can_play = true;  // 접근 가능한 상태로 변경
 
             ColorBlock colorBlock = playbtn.colors;  // 색 변경
             if(playbtn.tag == "Boss")
                 colorBlock.normalColor = new Color(1f,0f,0f);
-            else
-                colorBlock.normalColor = new Color(1f,1f,1f);
+            else if(!(playbtn.GetComponent<PlayBtn>().cleared_play))
+                colorBlock.normalColor = Color.gray;
             playbtn.colors = colorBlock;
 
         }
