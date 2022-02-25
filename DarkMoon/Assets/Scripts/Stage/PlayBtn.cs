@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayBtn : PlayBase  // map에서 진행되는 play 관련 script
+public class PlayBtn : PlayBtnBase  // map에서 진행되는 play 관련 script
 {
 
     public override void Play(){  // 칸을 클릭할 때 실행되는 함수 
@@ -27,7 +27,10 @@ public class PlayBtn : PlayBase  // map에서 진행되는 play 관련 script
 
         ColorBlock colorBlock = current_map.CurrentPlay.GetComponent<Button>().colors;  // 색 변경
         if(cleared_play){
-            colorBlock.normalColor = Color.white;
+            if(tag == "Boss")
+                colorBlock.normalColor = Color.red;
+            else
+                colorBlock.normalColor = Color.white;
             base.StateUpdate();
         }
         else

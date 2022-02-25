@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayBase : MonoBehaviour  // map에서 진행되는 play 관련 script
+public class PlayBtnBase : MonoBehaviour  // map에서 진행되는 play 관련 script
 {
 
     public List<Button> near_button = new List<Button>();  // 인접한 칸(button)을 담은 list
@@ -62,7 +62,7 @@ public class PlayBase : MonoBehaviour  // map에서 진행되는 play 관련 scr
 
             ColorBlock colorBlock = playbtn.colors;  // 색 변경
             if(playbtn.tag == "Boss")
-                colorBlock.normalColor = new Color(1f,0f,0f);
+                colorBlock.normalColor = Color.red;
             else if(!(playbtn.GetComponent<PlayBtn>().cleared_play))
                 colorBlock.normalColor = Color.gray;
             playbtn.colors = colorBlock;
