@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 using TMPro;
 
 public class HumanResourceDisplay : MonoBehaviour
@@ -18,7 +19,7 @@ public class HumanResourceDisplay : MonoBehaviour
     {
         entity_name_text.text = player_entity_data.entity_name;
 
-        entity_image.sprite = Resources.Load<Sprite>("Player/" + player_entity_data.class_type.ToString());
+        entity_image.sprite = Resources.Load<Sprite>(Path.Combine("Player",player_entity_data.class_type.ToString()));
 
         // entity_price.text = ~;
     }

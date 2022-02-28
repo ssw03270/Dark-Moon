@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 using TMPro;
 
 public class TempCardDisplay : MonoBehaviour
@@ -35,9 +36,9 @@ public class TempCardDisplay : MonoBehaviour
         card_classType = card.class_type;
         card_rare = card.card_rare;
 
-        card_bg.sprite = Resources.Load<Sprite>("Card/" + card_classType.ToString() + "BG");
-        card_rare_img.sprite = Resources.Load<Sprite>("Card/" + card_rare.ToString() + "_0");
-        card_rare_name.sprite = Resources.Load<Sprite>("Card/" + card_rare.ToString() + "_1");
+        card_bg.sprite = Resources.Load<Sprite>(Path.Combine("Card", card_classType.ToString() + "BG"));
+        card_rare_img.sprite = Resources.Load<Sprite>(Path.Combine("Card", card_rare.ToString() + "_0"));
+        card_rare_name.sprite = Resources.Load<Sprite>(Path.Combine("Card", card_rare.ToString() + "_1"));
 
         card_price.text = card.card_price.ToString();
     }

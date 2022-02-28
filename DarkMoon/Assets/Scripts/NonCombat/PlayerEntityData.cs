@@ -13,3 +13,9 @@ public class PlayerEntityData
     public int entity_avoid;
     
 }
+
+[System.Serializable]
+public class PlayerList
+{
+    public PlayerEntityData[] playerEntityData;
+}

@@ -147,7 +147,7 @@ public class PlayerEntity : EntityBase
 
         entity_name = names[random_index];
         
-        Debug.Log(names[random_index]);
+        //Debug.Log(names[random_index]);
     }
 
     protected override void Update()

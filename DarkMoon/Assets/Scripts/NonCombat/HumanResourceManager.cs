@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using System.IO;
 
 public class HumanResourceManager : MonoBehaviour
 {
@@ -8,11 +10,13 @@ public class HumanResourceManager : MonoBehaviour
     public RectTransform human_resource_slots; // 인력소 슬롯 부모
     public TempManager temp_manager; // 골드 관리용 게임매니저(임시)
 
-    //public List<PlayerEntity> player_entity_Prefab = new List<PlayerEntity>();
+    public CampManager campManager;
+
     public Mage mage_Prefab;
     public Priest priest_Prefab;
     public Rogue rogue_Prefab;
     public Warrior warrior_Prefab;
+
 
     private void Awake()
     {
@@ -64,6 +68,25 @@ public class HumanResourceManager : MonoBehaviour
 
             
         }
+    }
+
+    public void BuyPlayer()
+    {
+        GameObject player_button = EventSystem.current.currentSelectedGameObject; // 클릭한 플레이어 버튼 오브젝트
+        PlayerEntityData player_entity_data = player_button.GetComponent<HumanResourceDisplay>().player_entity_data; // 플레이어 데이터 정보
+        string path = Path.Combine(Application.dataPath, "Scripts", "playerData.json"); // json 저장 경로
+
+        // player_list에서 정보 뽑아와서 그 뒤에 추가
+        campManager.player_data_list.Add(player_entity_data);
+
+        campManager.playerList.playerEntityData = campManager.player_data_list.ToArray();
+
+
+        string json_data = JsonUtility.ToJson(campManager.playerList, true);
+        
+        File.WriteAllText(path, json_data);
+
+        player_button.SetActive(false);
     }
 
 }
