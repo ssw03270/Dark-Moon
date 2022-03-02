@@ -162,6 +162,7 @@ MonoBehaviour:
   - {fileID: 2010865595}
   - {fileID: 0}
   current_player_number: 0
+  current_enemy_number: 0
   hand_max_count: 5
   max_energy: 3
   current_energy: 3
@@ -847,7 +848,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 607681105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4ff03b98e98ad4caf03b28a544c1c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a4082489d5d4b14eb133000f84e33b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   entity_name: Skeleton
@@ -1302,7 +1303,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1359098001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4ff03b98e98ad4caf03b28a544c1c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a4082489d5d4b14eb133000f84e33b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   entity_name: Skeleton
@@ -1970,7 +1971,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2010865594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4ff03b98e98ad4caf03b28a544c1c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a4082489d5d4b14eb133000f84e33b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   entity_name: Skeleton

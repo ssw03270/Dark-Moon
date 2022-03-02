@@ -7,9 +7,10 @@ public class FieldManager : MonoBehaviour
 {
     // battle ground
     public PlayerEntity[] player_entity = new PlayerEntity[3];      // 플레이어 진영 캐릭터 저장된 array
-    public EntityBase[] enemy_entity = new EntityBase[4];           // 적 진영 캐릭터 저장된 array
+    public EnemyEntity[] enemy_entity = new EnemyEntity[4];           // 적 진영 캐릭터 저장된 array
 
     public int current_player_number = 0;                           // 현재 활성화된 플레이어 진영 캐릭터 번호
+    public int current_enemy_number = 0;
 
     public int hand_max_count = 5;                                  // 기본 최대 손패
 
@@ -37,6 +38,7 @@ public class FieldManager : MonoBehaviour
             {
                 player_entity[i].HandToDiscardPile(player_entity[i].hand.Count);    // 손패를 버린 카드 더미로 옮김
                 enemy_entity[i].NextTurn();
+                enemy_entity[i].EnemyTurn();
             }
 
             player_entity[current_player_number].DeactivateHand();
