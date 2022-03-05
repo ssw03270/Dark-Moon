@@ -22,6 +22,7 @@ public class FieldManager : MonoBehaviour
     // end game
     public CardBase[] get_card_list = new CardBase[3];              // 전투가 끝난 후, 플레이어가 얻게 될 카드 보상 3장
 
+    public List<CardBase> card = new List<CardBase>();
     private void Start()
     {
         NextTurn();     // 플레이어 차례부터 시작
@@ -65,9 +66,11 @@ public class FieldManager : MonoBehaviour
         player_entity[current_player_number].ActivateHand();
     }
 
-    public void AddCard(CardBase card)
+    public void AddCard()
     {
-        player_entity[current_player_number].AddCardToDeck(card);
+        int len = card.Count;
+        int random_index = Random.Range(0, len);
+        player_entity[current_player_number].AddCardToDeck(card[random_index]);
     }
 
     public void DrawCard()
