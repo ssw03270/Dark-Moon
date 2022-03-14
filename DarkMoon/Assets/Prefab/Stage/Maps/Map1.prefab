@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 1111735367856055469}
   m_Layer: 0
   m_Name: play20
-  m_TagString: Boss
+  m_TagString: Battle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1465,6 +1465,12 @@ MonoBehaviour:
   - {fileID: 6428556224675646129, guid: dbe8127e7db7bd645bb61eaf78c55c16, type: 3}
   - {fileID: 6428556224675646129, guid: ef6245b98d4651c4e98f42bccea1186f, type: 3}
   - {fileID: 6428556224675646129, guid: 2d77de1b61a3e7a43b1b32fbb9b32e10, type: 3}
+  BossList:
+  - {fileID: 2466824164776226906}
+  - {fileID: 2035739354816347258}
+  - {fileID: 1383243042667058728}
+  - {fileID: 5197315506223229459}
+  - {fileID: 3104881962220080254}
 --- !u!1 &2466824164589093449
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,7 +5649,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+    m_NormalColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 1}
@@ -5693,7 +5699,7 @@ MonoBehaviour:
   near_button:
   - {fileID: 2466824165159780373}
   - {fileID: 7195450604135089461}
-  can_play: 0
+  can_play: 1
   PrefabPlay1: {fileID: 6428556224675646129, guid: b99c862ee9d5b4144bcf753554167a0b, type: 3}
   current_map: {fileID: 0}
   cleared_play: 0

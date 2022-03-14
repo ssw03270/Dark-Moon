@@ -18,6 +18,7 @@ public class PlayBtnBase : MonoBehaviour  // map에서 진행되는 play 관련 
     protected void Awake()
     {
         current_map = transform.parent.gameObject.GetComponent<Map>();  // 현재 객체의 부모(Map)의 정보 가져옴
+
     }
  
     public virtual void Play(){  // 칸을 클릭할 때 실행되는 함수 
@@ -69,5 +70,6 @@ public class PlayBtnBase : MonoBehaviour  // map에서 진행되는 play 관련 
 
         }
     }
+
     
 }
