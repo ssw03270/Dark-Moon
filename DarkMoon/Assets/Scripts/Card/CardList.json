@@ -54,5 +54,20 @@
         "target_type": "Enemy",
         "card_cost": "3",
         "card_content": "적에게 독을 분사해 독을 3 부여한다."
+    },
+    {
+        "card_name": "Nightly Walk",
+        "class_type": "Rogue",
+        "target_type": "Player",
+        "card_cost": "1",
+        "card_content": "자신에게 회피를 1 부여한다."
+    },
+    {
+        "card_name": "Knife Throwing",
+        "class_type": "Rogue",
+        "target_type": "Enemy",
+        "card_cost": "2",
+        "card_content": "적에게 단검을 던져 #d1의 데미지를 준다."
     }
+
 ]
