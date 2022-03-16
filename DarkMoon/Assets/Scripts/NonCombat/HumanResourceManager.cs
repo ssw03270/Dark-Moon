@@ -74,19 +74,38 @@ public class HumanResourceManager : MonoBehaviour
     {
         GameObject player_button = EventSystem.current.currentSelectedGameObject; // 클릭한 플레이어 버튼 오브젝트
         PlayerEntityData player_entity_data = player_button.GetComponent<HumanResourceDisplay>().player_entity_data; // 플레이어 데이터 정보
-        string path = Path.Combine(Application.dataPath, "Scripts", "playerData.json"); // json 저장 경로
+        
 
         // player_list에서 정보 뽑아와서 그 뒤에 추가
         campManager.player_data_list.Add(player_entity_data);
 
         campManager.playerList.playerEntityData = campManager.player_data_list.ToArray();
 
+        player_button.SetActive(false);
+
+        // 캠프 한 칸 활성화
+        campManager.camp_slots.GetChild(campManager.player_count).gameObject.SetActive(true);
+        campManager.camp_slots.GetChild(campManager.player_count).GetComponent<CampDisplay>().player_entity_data = player_entity_data;
+        campManager.player_count++;
+        campManager.CampDisplay();
+        
+    }
+
+    public void DeletePlayerData()
+    {
+        string path = Path.Combine(Application.dataPath, "Scripts", "playerData.json");
+
+        string json_data = JsonUtility.ToJson("{}");
+        
+        File.WriteAllText(path, json_data);
+    }
+
+    public void WriteJsonData()
+    {
+        string path = Path.Combine(Application.dataPath, "Scripts", "playerData.json"); // json 저장 경로
 
         string json_data = JsonUtility.ToJson(campManager.playerList, true);
         
         File.WriteAllText(path, json_data);
-
-        player_button.SetActive(false);
     }
-
 }
